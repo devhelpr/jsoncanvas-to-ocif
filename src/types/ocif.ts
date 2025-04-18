@@ -5,7 +5,7 @@ export type OCIFNode =  {
   resource?: string;
   text?: string;
   data?: Array<{
-    type: '@ocif/node/oval' | '@ocif/node/rectangle' | '@ocif/node/arrow';
+    type: '@ocif/node/oval' | '@ocif/node/rect' | '@ocif/node/arrow';
     strokeWidth?: number;
     strokeColor?: string;
     fillColor?: string;

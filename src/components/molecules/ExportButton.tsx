@@ -4,9 +4,10 @@ interface ExportButtonProps {
   onExport: () => void;
   disabled?: boolean;
   variant?: 'default' | 'subtle';
+  label?: string;
 }
 
-export function ExportButton({ onExport, disabled = false, variant = 'default' }: ExportButtonProps) {
+export function ExportButton({ label,onExport, disabled = false, variant = 'default' }: ExportButtonProps) {
   return (
     <IconButton
       onClick={onExport}
@@ -18,7 +19,7 @@ export function ExportButton({ onExport, disabled = false, variant = 'default' }
         </svg>
       }
     >
-      Export SVG
+      {label || "Export SVG"}
     </IconButton>
   );
 } 

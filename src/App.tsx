@@ -83,6 +83,21 @@ function App() {
     URL.revokeObjectURL(url);
   }, [currentJson, validationResult]);
 
+  const handleExportOCIF = useCallback(() => {
+    if (!currentJson || !validationResult?.isValid) return;
+    const ocifJson = {...currentJson, ocif: "https://canvasprotocol.org/ocif/v0.4"};
+    // Create blob and download
+    const blob = new Blob([JSON.stringify(ocifJson)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ocif-export.ocif.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, [currentJson, validationResult]);
+
   const handleTldrawExport = useCallback(() => {
     if (!currentJson || !validationResult?.isValid) return;
 
@@ -149,6 +164,12 @@ function App() {
 
       {validationResult?.isValid && (
         <div className="mt-8 flex justify-center gap-4">
+          <ExportButton 
+            onExport={handleExportOCIF}
+            disabled={!currentJson || !validationResult?.isValid}
+            variant="subtle"
+            label="Export OCIF"
+          />
           <ExportButton 
             onExport={handleExport}
             disabled={!currentJson || !validationResult?.isValid}

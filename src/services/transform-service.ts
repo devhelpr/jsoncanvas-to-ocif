@@ -42,7 +42,7 @@ export class TransformService {
                 size: [node.width, node.height],
                 resource: resource ? `resource-${node.id}` : undefined,
                 data: [{
-                    type: "@ocif/node/rectangle",
+                    type: "@ocif/node/rect",
                     strokeColor: canvasColorToOCIFColor(node.color),                    
                 }]
             })
