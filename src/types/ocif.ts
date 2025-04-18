@@ -22,8 +22,6 @@ export type OCIFEdgeRelation = {
 
 export type OCIFGroupRelation = {
   type: '@ocif/rel/group';
-  start: string;
-  end: string;
   members?: string[];
 }
 

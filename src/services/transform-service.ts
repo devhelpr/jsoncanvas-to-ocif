@@ -1,4 +1,4 @@
-import { CanvasColor, JsonCanvas } from "../types/jsoncanvas";
+import { CanvasColor, GroupNode, JsonCanvas } from "../types/jsoncanvas";
 import { OCIFJson } from "../types/ocif";
 
 function canvasColorToOCIFColor(color?: CanvasColor): string {
@@ -10,7 +10,7 @@ function canvasColorToOCIFColor(color?: CanvasColor): string {
         case "5": return "cyan";
         case "6": return "purple";  
     }
-    return "black";
+    return color || "black";
 }
 
 export class TransformService {
@@ -81,8 +81,32 @@ export class TransformService {
                 }
             ]
         })
-    })  
-        
+    })
+    
+    jsonCanvas.nodes?.forEach((node) => {
+        if (node.type === 'group' && ocif.relations) {
+            const group = node as GroupNode;
+            const members: string[] = [];
+            jsonCanvas.nodes?.forEach((child) => {
+                if (child.type !== 'group') {
+                   if (child.x >= group.x && child.x <= group.x + group.width && child.y >= group.y && child.y <= group.y + group.height) {
+                    members.push(child.id);
+                   }
+                }
+            });
+            if (members.length > 0) {
+                ocif.relations.push({
+                    id: `group-${group.id}`,
+                    data: [
+                        {
+                            type: '@ocif/rel/group',
+                            members: members
+                        }
+                    ]   
+                })
+            }
+        }
+    })
     return ocif;
   }
 }
