@@ -12,21 +12,28 @@ export type OCIFNode =  {
   }>;
 }
 
+export type OCIFEdgeRelation = {
+  type: '@ocif/rel/edge';
+  start: string;
+  end: string;
+  rel: string;
+  node: string;
+}
+
+export type OCIFGroupRelation = {
+  type: '@ocif/rel/group';
+  start: string;
+  end: string;
+  members?: string[];
+}
+
 export type OCIFJson = {
-  version: string;
   nodes?: {
     [key: string]: OCIFNode;
   };
   relations?: Array<{
     id: string;
-    data: Array<{
-      type: string;
-      start: string;
-      end: string;
-      rel: string;
-      node: string;
-      members?: string[];
-    }>;
+    data: Array<OCIFEdgeRelation | OCIFGroupRelation>;
   }>;
   resources?: Array<{
     id: string;

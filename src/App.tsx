@@ -9,6 +9,7 @@ import { FileDropZone } from './components/molecules/FileDropZone'
 import { ValidationResult } from './components/molecules/ValidationResult'
 import { ExportButton } from './components/molecules/ExportButton'
 import { TldrawExportButton } from './components/molecules/TldrawExportButton'
+import { TransformService } from './services/transform-service'
 
 function App() {
   const [validationResult, setValidationResult] = useState<{
@@ -37,9 +38,18 @@ function App() {
           throw new Error('Invalid JSON/JSON5 format')
         }
       }
-
-      setCurrentJson(json)
-      setValidationResult(validateJson(json, text))
+      console.log(json);
+      const result = validateJson(json, text);
+      
+      setValidationResult(result);
+      if (result.isValid && result.jsonCanvas) {
+        
+        // Convert JSON Canvas to OCIF JSON
+        const transformService = new TransformService();
+        const ocifJson = transformService.transformJsonCanvasToOCIF(result.jsonCanvas);
+        console.log(result,ocifJson);
+        setCurrentJson(ocifJson)
+      }
     } catch {
       setCurrentJson(null)
       setValidationResult({

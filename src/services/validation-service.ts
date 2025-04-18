@@ -2,6 +2,7 @@ import { ErrorObject } from 'ajv'
 import Ajv2020 from "ajv/dist/2020"
 import JSON5 from 'json5'
 import schema from '../../jsoncanvas-schema.json'
+import { JsonCanvas } from '../types/jsoncanvas';
 
 export interface ValidationError {
   path: string;
@@ -15,6 +16,7 @@ export interface ValidationError {
 export interface ValidationResult {
   isValid: boolean;
   errors?: ValidationError[];
+  jsonCanvas?: JsonCanvas
 }
 
 export class ValidationService {
@@ -24,7 +26,7 @@ export class ValidationService {
   constructor() {
 
     this.ajv = new Ajv2020({ allErrors: true, verbose: true });
-    this.validate = this.ajv.compile(schema);
+    this.validate = this.ajv.compile<JsonCanvas>(schema);
   }
 
   private getSchemaDetails(error: ErrorObject): string {
@@ -180,7 +182,8 @@ export class ValidationService {
       }
 
       return {
-        isValid: true
+        isValid: true,
+        jsonCanvas: json as JsonCanvas
       };
     } catch {
       return {
@@ -231,6 +234,7 @@ export function validateJson(json: unknown, jsonString: string): ValidationResul
   }
 
   return {
-    isValid: true
+    isValid: true,
+    jsonCanvas: json as JsonCanvas
   };
 } 
