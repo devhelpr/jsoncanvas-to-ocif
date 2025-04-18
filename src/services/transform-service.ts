@@ -19,7 +19,7 @@ export class TransformService {
                 ocif.resources.push({
                     id: `resource-${node.id}`,
                     representations: [{
-                        'mime-type': 'text/plain',
+                        'mime-type': node.type === 'text' ? 'text/markdown' : 'text/plain',
                         content: resource
                     }]
                 })
