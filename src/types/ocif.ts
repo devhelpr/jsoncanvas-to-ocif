@@ -28,9 +28,7 @@ export type OCIFGroupRelation = {
 }
 
 export type OCIFJson = {
-  nodes?: {
-    [key: string]: OCIFNode;
-  };
+  nodes?: Array<OCIFNode>;
   relations?: Array<{
     id: string;
     data: Array<OCIFEdgeRelation | OCIFGroupRelation>;

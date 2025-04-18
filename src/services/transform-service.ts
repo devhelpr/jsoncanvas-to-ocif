@@ -1,14 +1,26 @@
-import { JsonCanvas } from "../types/jsoncanvas";
+import { CanvasColor, JsonCanvas } from "../types/jsoncanvas";
 import { OCIFJson } from "../types/ocif";
+
+function canvasColorToOCIFColor(color?: CanvasColor): string {
+    switch (color) {
+        case "1": return "red";
+        case "2": return "orange";
+        case "3": return "yellow";
+        case "4": return "green";
+        case "5": return "cyan";
+        case "6": return "purple";  
+    }
+    return "black";
+}
 
 export class TransformService {
   public transformJsonCanvasToOCIF(jsonCanvas: JsonCanvas): OCIFJson {
     const ocif: OCIFJson = {
-      nodes: {},
+      nodes: [],
       relations: [],
       resources: []
     }
-   
+
     jsonCanvas.nodes?.forEach((node) => {
         if (!ocif.nodes || !ocif.relations || !ocif.resources) {
             throw new Error('OCIF JSON is missing required properties');
@@ -24,12 +36,16 @@ export class TransformService {
                     }]
                 })
             }
-            ocif.nodes[node.id] = {
+            ocif.nodes.push({
                 id: node.id,
                 position: [node.x, node.y],
                 size: [node.width, node.height],
-                resource: resource ? `resource-${node.id}` : undefined
-            }
+                resource: resource ? `resource-${node.id}` : undefined,
+                data: [{
+                    type: "@ocif/node/rectangle",
+                    strokeColor: canvasColorToOCIFColor(node.color),                    
+                }]
+            })
         }
     })
 
@@ -42,7 +58,8 @@ export class TransformService {
         if (!fromNode || !toNode) {
             throw new Error('JSON Canvas is missing nodes');
         }
-        ocif.nodes[`arrow-${edge.id}`] = {
+    
+        ocif.nodes.push({
             id: `arrow-${edge.id}`,
             position: [fromNode.x + fromNode.width / 2, fromNode.y + fromNode.height / 2],
             size: [toNode.x - fromNode.x, toNode.y - fromNode.y],
@@ -51,7 +68,7 @@ export class TransformService {
                     type: '@ocif/node/arrow',                                       
                 }
             ]
-        };
+        });
         ocif.relations.push({
             id: edge.id,
             data: [

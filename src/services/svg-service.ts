@@ -1,11 +1,11 @@
-import { OCIFJson, Node, Relation, Group } from '../types/ocif'
+import { OCIFJson, Node, Relation, Group, OCIFNode } from '../types/ocif'
 import { renderMarkdownToSVGText } from './utils/markdownToSVGText';
 
 type Resource = NonNullable<OCIFJson['resources']>[number];
 type Representation = NonNullable<Resource['representations']>[number];
 
 // Helper function to get text from linked resource
-const getNodeText = (node: NonNullable<OCIFJson['nodes']>[string], resources?: OCIFJson['resources'], width? : number, height? : number): string => {
+const getNodeText = (node: NonNullable<OCIFNode>, resources?: OCIFJson['resources'], width? : number, height? : number): string => {
   // First check if there's a direct text property
   if (typeof node.text === 'string') return node.text;
   
@@ -36,7 +36,7 @@ const getNodeText = (node: NonNullable<OCIFJson['nodes']>[string], resources?: O
 };
 
 // Helper function to get node style from data
-const getNodeStyle = (node: NonNullable<OCIFJson['nodes']>[string]): Node['style'] => {
+const getNodeStyle = (node: NonNullable<OCIFNode>): Node['style'] => {
   const nodeData = node.data?.[0];
   return {
     type: nodeData?.type === '@ocif/node/oval' ? 'oval' as const : 'rectangle' as const,
@@ -156,7 +156,7 @@ export function generateSVG(json: OCIFJson): string {
   
   // Process nodes from the OCIF data
   if (json.nodes) {
-    Object.entries(json.nodes).forEach(([, node], index) => {
+    json.nodes.forEach(((node, index) => {
       const nodeWidth = node.size?.[0] || 120;
       const nodeHeight = node.size?.[1] || 60;
       
@@ -177,7 +177,7 @@ export function generateSVG(json: OCIFJson): string {
           style
         });
       }
-    });
+    }));
   }
 
   // Process relations

@@ -127,7 +127,7 @@ export function generateTldrawJson(json: OCIFJson): string {
 
   // Add nodes
   if (json.nodes) {
-    Object.entries(json.nodes).forEach(([_nodeId, node], index) => {
+    json.nodes.forEach(( node, index) => {
       if (node.data?.[0]?.type === "@ocif/node/arrow") return;
       
       const nodeWidth = node.size?.[0] || 120;
@@ -231,7 +231,7 @@ export function generateTldrawJson(json: OCIFJson): string {
         const toNode = nodes?.find(node => node.id === relation.end);
         
         
-        if (fromNode && toNode) {
+        if (fromNode && toNode && relation.type === "@ocif/rel/edge") {
           const fromX = fromNode.position?.[0] || 100;
           const fromY = fromNode.position?.[1] || 100;
           const toX = toNode.position?.[0] || 300;
@@ -254,7 +254,6 @@ export function generateTldrawJson(json: OCIFJson): string {
           // Calculate center point of source node
           const fromCenterX = fromX + (fromNode.size?.[0] || 120) / 2;
           const fromCenterY = fromY + (fromNode.size?.[1] || 60) / 2;
-          
           // Add arrow
           tldrawJson.records.push({
             x: fromCenterX,
