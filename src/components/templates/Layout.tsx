@@ -22,10 +22,10 @@ export function Layout({ children }: LayoutProps) {
                 JSON Canvas to OCIF
               </h1>
               <p className="text-zinc-600">
-                Upload your Canvas JSON file to convert to OCIF JSON
+                Upload your JSON Canvas file to convert to OCIF JSON
               </p>
               <p className="text-sm text-zinc-500 mt-2">
-                Currently supporting OCIF specification v0.4
+                Currently supporting JSON Canvas 1.0 and OCIF specification v0.4
               </p>
             </div>
             

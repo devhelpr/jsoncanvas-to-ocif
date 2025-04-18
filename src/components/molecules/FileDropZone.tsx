@@ -47,7 +47,7 @@ export function FileDropZone({
             />
           </label>
           <p className="text-zinc-600">or drag and drop</p>
-          <p className="text-sm text-zinc-500">JSON and JSON5 files</p>
+          <p className="text-sm text-zinc-500">JSON Canvas JSON and JSON5 files</p>
         </div>
       </div>
     </div>
