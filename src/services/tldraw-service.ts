@@ -1,4 +1,4 @@
-import { OCIFJson, OCIFNode } from '../types/ocif';
+import { OCIFEdgeRelation, OCIFJson, OCIFNode } from '../types/ocif';
 
 export function generateTldrawJson(json: OCIFJson): string {
   // Create base tldraw structure
@@ -227,8 +227,8 @@ export function generateTldrawJson(json: OCIFJson): string {
     json.relations.forEach((relationGroup, index) => {
       relationGroup.data.forEach(relation => {
         const nodes = json.nodes as unknown as Array<OCIFNode>;
-        const fromNode = nodes?.find(node => node.id === relation.start);
-        const toNode = nodes?.find(node => node.id === relation.end);
+        const fromNode = nodes?.find(node => node.id === (relation as OCIFEdgeRelation).start);
+        const toNode = nodes?.find(node => node.id === (relation as OCIFEdgeRelation).end);
         
         
         if (fromNode && toNode && relation.type === "@ocif/rel/edge") {
