@@ -1,0 +1,276 @@
+{
+  "nodes": [
+    {
+      "id": "n1",
+      "type": "text",
+      "x": 46.50000000000006,
+      "y": 612.715,
+      "width": 224,
+      "height": 83,
+      "text": "Welcome to Flowchart Fun",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n2",
+      "type": "text",
+      "x": 345.5,
+      "y": 413.30499999999995,
+      "width": 224,
+      "height": 62,
+      "text": "Begin your journey",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n3",
+      "type": "text",
+      "x": 644.5,
+      "y": 84.17500000000001,
+      "width": 224,
+      "height": 62,
+      "text": "Add some steps",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n4",
+      "type": "text",
+      "x": 943.5,
+      "y": -40.48499999999996,
+      "width": 224,
+      "height": 62,
+      "text": "Write like an outline",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n5",
+      "type": "text",
+      "x": 943.5,
+      "y": 84.17500000000001,
+      "width": 224,
+      "height": 83,
+      "text": "Each line becomes a node",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n6",
+      "type": "text",
+      "x": 943.5,
+      "y": 220.79500000000002,
+      "width": 224,
+      "height": 83,
+      "text": "Indent to connect nodes",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n7",
+      "type": "text",
+      "x": 644.5,
+      "y": 401.80499999999995,
+      "width": 224,
+      "height": 62,
+      "text": "Style with classes",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n8",
+      "type": "text",
+      "x": 943.5,
+      "y": 345.455,
+      "width": 224,
+      "height": 62,
+      "text": "Green?",
+      "color": "#2a9d8f"
+    },
+    {
+      "id": "n9",
+      "type": "text",
+      "x": 943.5,
+      "y": 612.7149999999999,
+      "width": 224,
+      "height": 62,
+      "text": "Or maybe blue!",
+      "color": "#606ef6"
+    },
+    {
+      "id": "n10",
+      "type": "text",
+      "x": 644.5,
+      "y": 538.425,
+      "width": 224,
+      "height": 104,
+      "text": "Wrap text in parentheses to connect to any node",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n12",
+      "type": "text",
+      "x": 345.5,
+      "y": 823.625,
+      "width": 224,
+      "height": 62,
+      "text": "What's next?",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n13",
+      "type": "text",
+      "x": 644.5,
+      "y": 687.005,
+      "width": 224,
+      "height": 83,
+      "text": "Right-click nodes for options",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n14",
+      "type": "text",
+      "x": 644.5,
+      "y": 823.625,
+      "width": 224,
+      "height": 83,
+      "text": "Paste a document to convert it",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n15",
+      "type": "text",
+      "x": 644.5,
+      "y": 948.2849999999999,
+      "width": 224,
+      "height": 62,
+      "text": "You're doing great!",
+      "color": "#e6e6e6"
+    },
+    {
+      "id": "n16",
+      "type": "text",
+      "x": 943.5,
+      "y": 948.2849999999999,
+      "width": 224,
+      "height": 83,
+      "text": "Now you're thinking with flowcharts!",
+      "color": "#e6e6e6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "n1-n2-1",
+      "fromNode": "n1",
+      "toNode": "n2",
+      "label": "",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "n2-n3-1",
+      "fromNode": "n2",
+      "toNode": "n3",
+      "label": "",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "n3-n4-1",
+      "fromNode": "n3",
+      "toNode": "n4",
+      "label": "Step 1",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n3-n5-1",
+      "fromNode": "n3",
+      "toNode": "n5",
+      "label": "Step 2",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n3-n6-1",
+      "fromNode": "n3",
+      "toNode": "n6",
+      "label": "Step 3",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n2-n7-1",
+      "fromNode": "n2",
+      "toNode": "n7",
+      "label": "",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n7-n8-1",
+      "fromNode": "n7",
+      "toNode": "n8",
+      "label": "",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n7-n9-1",
+      "fromNode": "n7",
+      "toNode": "n9",
+      "label": "",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "n2-n10-1",
+      "fromNode": "n2",
+      "toNode": "n10",
+      "label": "",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n1-n12-1",
+      "fromNode": "n1",
+      "toNode": "n12",
+      "label": "Time to decide",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "n12-n13-1",
+      "fromNode": "n12",
+      "toNode": "n13",
+      "label": "Explore more",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n12-n14-1",
+      "fromNode": "n12",
+      "toNode": "n14",
+      "label": "Try AI",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n12-n15-1",
+      "fromNode": "n12",
+      "toNode": "n15",
+      "label": "Keep practicing",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n15-n16-1",
+      "fromNode": "n15",
+      "toNode": "n16",
+      "label": "",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "n10-n2-1",
+      "fromNode": "n10",
+      "toNode": "n2",
+      "label": "Link back",
+      "fromSide": "left",
+      "toSide": "right"
+    }
+  ]
+}

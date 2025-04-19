@@ -28,8 +28,8 @@
       "properties": {
         "id": { "type": "string" },
         "type": { "type": "string" },
-        "x": { "type": "integer" },
-        "y": { "type": "integer" },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
         "width": { "type": "integer" },
         "height": { "type": "integer" },
         "color": { "$ref": "#/$defs/CanvasColor" }
@@ -44,8 +44,8 @@
           "properties": {
             "type": { "const": "text" },
             "text": { "type": "string" },
-            "x": { "type": "integer" },
-            "y": { "type": "integer" },
+            "x": { "type": "number" },
+            "y": { "type": "number" },
             "width": { "type": "integer" },
             "height": { "type": "integer" }
           },
@@ -65,8 +65,8 @@
               "type": "string",
               "pattern": "^#.*"
             },
-            "x": { "type": "integer" },
-            "y": { "type": "integer" },
+            "x": { "type": "number" },
+            "y": { "type": "number" },
             "width": { "type": "integer" },
             "height": { "type": "integer" }
           },
@@ -82,8 +82,8 @@
           "properties": {
             "type": { "const": "link" },
             "url": { "type": "string" },
-            "x": { "type": "integer" },
-            "y": { "type": "integer" },
+            "x": { "type": "number" },
+            "y": { "type": "number" },
             "width": { "type": "integer" },
             "height": { "type": "integer" }
           },
@@ -104,8 +104,8 @@
               "type": "string",
               "enum": ["cover", "ratio", "repeat"]
             },
-            "x": { "type": "integer" },
-            "y": { "type": "integer" },
+            "x": { "type": "number" },
+            "y": { "type": "number" },
             "width": { "type": "integer" },
             "height": { "type": "integer" }
           }
