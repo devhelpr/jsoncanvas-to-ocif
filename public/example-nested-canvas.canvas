@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "type": "nested-canvas",
+      "id": "fad736c3-5f24-4c2f-a074-98835fd2e0e6",
+      "x": 420,
+      "y": -20,
+      "width": 800,
+      "height": 600,
+      "canvas": {
+        "nodes": [
+          {
+            "type": "text",
+            "id": "8f252a79-175e-4cd3-986e-00eaffe7901e",
+            "x": 215.38426281252933,
+            "y": 247.35987505646833,
+            "width": 260,
+            "height": 80,
+            "text": "Text node inside nested canvas"
+          },
+          {
+            "type": "text",
+            "id": "7240a91e-6396-49f9-b4d5-1b44c4e48ca6",
+            "x": -60,
+            "y": 60,
+            "width": 260,
+            "height": 80,
+            "text": "inside ?"
+          }
+        ],
+        "edges": []
+      },
+      "title": "My Nested canvas"
+    },
+    {
+      "type": "text",
+      "id": "e3dbe0a8-8370-4db6-84b7-d3d8cbea252a",
+      "x": 140,
+      "y": -140,
+      "width": 260,
+      "height": 80,
+      "text": "test outside"
+    }
+  ],
+  "edges": []
+}
