@@ -64,7 +64,7 @@ export interface Node {
   y: number;
   text?: string;
   style: {
-    type: "rectangle" | "oval" | "canvas";
+    type: "rectangle" | "oval";
     strokeWidth: number;
     strokeColor: string;
     fillColor: string;
